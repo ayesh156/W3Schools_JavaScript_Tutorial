@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            margin-left: 20px;
+            background: rgb(73, 133, 189);
+        }
+    </style>
+    <title>JSON</title>
+</head>
+<body>
+    <h1>JSON Objects</h1>
+
+    <h2>Accessing properties using .property</h2>
+    
+    <p id="demo1"></p>
+
+    <script>
+        var myJSON = '{"name":"Ayesh","age":20,"car":null}';
+        var myObj = JSON.parse(myJSON);
+        document.getElementById("demo1").innerHTML = myObj.name;
+    </script>
+
+    <h2>Accessing property using [property]</h2>
+
+    <p id="demo2"></p>
+
+    <script>
+        var myJSON = '{"name":"Ayesh","age":20,"car":null}';
+        var myObj = JSON.parse(myJSON);
+        document.getElementById("demo2").innerHTML = myObj["name"];
+    </script>
+
+    <h2>Looping Object Properties</h2>
+
+    <p id="demo3"></p>
+
+    <script>
+        var myJSON = '{"name":"Ayesh","age":20,"car":null}';
+        var myObj = JSON.parse(myJSON);
+        var txt = "";
+        for(var x in myObj) {
+            txt += x + ", ";
+        }
+        document.getElementById("demo3").innerHTML = myObj.name;
+    </script>
+
+    <h2>Looping through property values</h2>
+
+    <p id="demo4"></p>
+        
+    <script>
+        var myJSON = '{"name":"Ayesh","age":20,"car":null}';
+        var myObj = JSON.parse(myJSON);
+        var txt = "";
+        for(var x in myObj) {
+            txt += myObj[x] + ", ";
+        }
+        document.getElementById("demo4").innerHTML = txt;
+    </script>
+
+    <h2>Access nested JSON objects</h2>
+
+    <p id="demo5"></p>
+
+    <script>
+        var myObj = {
+            "name" : "Ayesh",
+            "age" : 20,
+            "cars" : {
+                "car1" : "Audi",
+                "car2" : "CHR",
+                "car3" : "BMW"
+            }
+        }
+        document.getElementById("demo5").innerHTML = myObj.cars.car3;
+    </script>
+
+    <h2>Modify values using the dot notation</h2>
+
+    <p id="demo6"></p>
+
+    <script>
+       var myObj = {
+           "name" : "Ayesh",
+           "age" : 20,
+           "cars" : {
+               "car1" : "BMW",
+               "car2" : "CHR",
+               "car3" : "Audi"
+           }
+       }
+       myObj.cars.car2 = "Mercedes";
+       var txt = "";
+       for(var i in myObj.cars) {
+           txt += myObj.cars[i] + ", ";
+       }
+       document.getElementById("demo6").innerHTML = txt;
+    </script>
+
+    <h2>Modify values using the bracket notation</h2>
+
+    <p id="demo7"></p>
+
+    <script>
+        var myObj = {
+            "name" : "Ayesh",
+            "age" : 20,
+            "cars" : {
+                "car1" : "CHR",
+                "car2" : "BMW",
+                "car3" : "Audi"
+            }
+        }
+        myObj.cars["car2"]  = "Mercedes";
+        var txt = "";
+        for(var x in myObj.cars){
+            txt += myObj.cars[x] + "<br>";
+        }
+        document.getElementById("demo7").innerHTML = txt;
+    </script>
+
+    <h2>Delete object properties</h2>
+
+    <p id="demo8"></p>
+
+    <script>
+        var myObj = {
+            "name" : "Ayesh",
+            "age" : 20,
+            "cars" : {
+                "car1" : "BMW",
+                "car2" : "CHR",
+                "car3" : "Audi"
+            }
+        }
+        delete myObj.cars.car3;
+        var txt = "";
+        for(var x in myObj.cars) {
+            txt += myObj.cars[x] + "<br>";
+        }
+        document.getElementById("demo8").innerHTML = txt;
+    </script>
+
+    <h1>JSON Arrays</h1>
+
+    <h2>Accessing array values</h2>
+
+    <p id="demo9"></p>
+
+    <script>
+        var myJSON = '{"name":"Ayesh","age":20,"cars":["Audi","CHR","BMW"]}';
+        var myObj = JSON.parse(myJSON);
+        document.getElementById("demo9").innerHTML = myObj.cars[1];
+    </script>
+
+    <h2>Looping through an array using for-in</h2>
+
+    <p id="demo10"></p>
+
+    <script>
+        var myJSON = '{"name":"Ayesh","age":20,"cars":["Audi","BMW","CHR"]}';
+        var myObj = JSON.parse(myJSON);
+        var txt = "";
+        for(var i in myObj.cars) {
+            txt += myObj.cars[i] + ", ";
+        }
+        document.getElementById("demo10").innerHTML = txt;
+    </script>
+
+    <h2>Looping through an array using for</h2>
+
+    <p id="demo11"></p>
+
+    <script>
+        var myJSON = '{"name":"Ayesh","age":20,"cars":["Audi","CHR","BMW"]}';
+        var myObj = JSON.parse(myJSON);
+        var txt = "";
+        for(var i = 0; i < myObj.cars.length; i++) {
+            txt += myObj.cars[i] + ", ";
+        }
+        document.getElementById("demo11").innerHTML = txt;
+    </script>
+
+    <h2>Access nested JSON arrays</h2>
+
+    <p id="demo12"></p>
+
+    <script>
+        var myObj = {
+            "name":"Ayesh",
+            "age":20,
+            "cars":[
+                {"name":"Ford","models":["Fiesta","Focus","Mestang"]},
+                {"name":"BMW","models":["320","X2","X3"]},
+                {"name":"Fiat","models":["500","Panda"]}
+            ]
+        }
+        var txt = "";
+        for(var i in myObj.cars){
+            txt += "<h2>" + myObj.cars[i].name + "</h2>";
+            for(var j in myObj.cars[i].models){
+                txt += myObj.cars[i].models[j] + "<br>";
+            }
+        }
+        document.getElementById("demo12").innerHTML = txt;
+    </script>
+
+    <h2>Modify array values</h2>
+
+    <p id="demo13"></p>
+
+    <script>
+        var myObj = {
+            "name":"Ayesh",
+            "age":20,
+            "cars":["Fiat","BMW","Ford"]
+        }
+        myObj.cars[1] = "Mercedes";
+        var txt = "";
+        for(var i in myObj.cars) {
+            txt += myObj.cars[i] + "<br>";
+        }
+        document.getElementById("demo13").innerHTML = txt;
+    </script>
+
+    <h2>Delete array items</h2>
+
+    <p id="demo14"></p>
+
+    <script>
+        var myObj = {
+            "name":"Ayesh",
+            "age":20,
+            "cars":["Fiat","BMW","Ford"]
+        }
+        delete myObj.cars[1];
+        var txt = "";
+        for(var i in myObj.cars){
+            txt += myObj.cars[i] + "<br>";
+        }
+        document.getElementById("demo14").innerHTML = txt;
+    </script>
+
+    <h1>JSON Parse</h1>
+
+    <h2>Creating an Object from a JSON String</h2>
+
+    <p id="demo15"></p>
+
+    <script>
+       var txt = '{"name":"Ayesh","age":20,"city":"Matara"}';
+       var obj = JSON.parse(txt);
+       document.getElementById("demo15").innerHTML = obj.name + ", " + obj.city;
+    </script>
+
+    <h2>Convert a string into date object.</h2>
+
+    <p id="demo16"></p>
+
+    <script>
+        var txt = '{"name":"Ayesh","birth":"2001-02-28","city":"Matara"}';
+        var obj = JSON.parse(txt);
+        obj.birth = new Date(obj.birth);
+        document.getElementById("demo16").innerHTML = obj.name + ", " + obj.birth;
+    </script>
+    
+    <h2>Convert a string into a date object using the riviver function</h2>
+
+    <p id="demo17"></p>
+
+    <script>
+        var txt = '{"name":"Ayesh","birth":"2001-02-28","city":"Matara"}';
+        var obj = JSON.parse(txt, function(key,value) {
+            if (key == "birth") {
+                return new Date(value);
+            } else {
+                return value;
+            }
+        });
+        document.getElementById("demo17").innerHTML = obj.name + ", " + obj.birth;
+    </script>
+
+    <h2>Convert a string into a function</h2>
+
+    <p id="demo18"></p>
+
+    <script>
+       var txt = '{"name":"Ayesh","age":"function() {return 20;}","city":"Matara"}';
+       var obj = JSON.parse(txt);
+       obj.age = eval("(" + obj.age + ")");
+       document.getElementById("demo18").innerHTML = obj.name + ", " + obj.age();
+    </script>
+
+    <h1>JSON Stringify</h1>
+
+    <h2>Create a JSON string from a JavaScript object</h2>
+
+    <p id="demo19"></p>
+
+    <script>
+        var obj = {name:"Ayesh",age:20,city:"Matara"};
+        var myJSON = JSON.stringify(obj);
+        document.getElementById("demo19").innerHTML = myJSON;
+    </script>
+
+    <h2>Create a JSON string from a JavaScript array</h2>
+
+    <p id="demo20"></p>
+
+    <script>
+       var arr = ["Ayesh","Chathura","Udantha","Thisara"];
+       var myJSON = JSON.stringify(arr);
+       document.getElementById("demo20").innerHTML = myJSON;
+    </script>
+
+    <h2>JSON.stringify() converts date objects into strings</h2>
+
+    <p id="demo21"></p>
+
+    <script>
+        var obj = {name:"Ayesh",today:new Date(),city:"Matara"};
+        var myJSON = JSON.stringify(obj);
+        document.getElementById("demo21").innerHTML = myJSON;
+    </script>
+
+    <h2>JSON.stringify() will remove any functions from an object</h2>
+
+    <p id="demo22"></p>
+
+    <script>
+        var obj = {name:"Ayesh",age:function() {return 20;},city:"Matara"};
+        var myJSON = JSON.stringify(obj);
+        document.getElementById("demo22").innerHTML = myJSON;
+    </script>
+
+    <h2>JSON.stringify() will remove any functions from an object</h2>
+    <h2>Convert functions into strings to keep them in the JSON object</h2>
+
+    <p id="demo23"></p>
+
+    <script>
+        var obj = {name:"Ayesh",age:function() {return 20;},city:"Matara"};
+        obj.age = obj.age.toString();
+        var myJSON = JSON.stringify(obj);
+        document.getElementById("demo23").innerHTML = myJSON;
+    </script>
+
+</body>
+</html>

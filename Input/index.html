@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript HTML Input Example</title>
+</head>
+<body>
+    <h1>Button Object</h1>
+
+    <h2>Disable a button</h2>
+
+    <form action="" id="frm1">
+        <input type="button" value="HTML" id="btn1">
+    </form>
+
+    <p>Click the "Disable" button to disable the "OK" button</p>
+
+    <button onclick="disableElement()">Disable</button>
+    <button onclick="enableElement()">Enable</button>
+
+    <script>
+        function disableElement() {
+            document.getElementById("btn1").disabled = true;
+        }
+        function enableElement() {
+            document.getElementById("btn1").disabled = false;
+        }
+    </script>
+
+    <h2>Find the name of a button</h2>
+
+    <button id="btn2" name="Subject">HTML</button>
+
+    <p>Click the "Try it" button to display the name of the "HTML" button</p>
+
+    <button onclick="myFunc1()">Try it</button>
+
+    <p id="demo1"></p>
+
+    <script>
+       function myFunc1() {
+           var x = document.getElementById("btn2").name;
+           document.getElementById("demo1").innerHTML = x;
+       }
+    </script>
+
+    <h2>Find the type of a button</h2>
+
+    <form action="" id="frm2">
+        <input type="button" value="HTML" id="btn3">
+    </form>
+
+    <p>Click the "Try it" button to return the type of the "HTML" button</p>
+
+    <button onclick="myFunc2()">Try it</button>
+
+    <p id="demo2"></p>
+
+    <script>
+        function myFunc2() {
+            var x = document.getElementById("btn3").type;
+            document.getElementById("demo2").innerHTML = x;
+        }
+    </script>
+
+    <h2>Find the value of a button</h2>
+
+    <form action="" id="frm3">
+        <button id="btn4" value="value_button">HTML</button>
+    </form>
+
+    <p>Click the "Try it" button to return the value of the "HTML" button</p>
+
+    <button onclick="myFunc4()">Try it</button>
+
+    <p id="demo4"></p>
+
+    <script>
+        function myFunc4(){
+            var x = document.getElementById("btn4").value;
+            document.getElementById("demo4").innerHTML = x;
+        }
+    </script>
+
+    <h2>Find the text displayed on a button</h2>
+
+    <form action="" id="frm4">
+        <button id="btn5">HTML</button>
+    </form>
+    
+    <p>Click the "Try it" button to return the text on the "HTML" button</p>
+
+    <button onclick="myFunc5()">Try it</button>
+
+    <p id="demo5"></p>
+
+    <script>
+        function myFunc5(){
+            var x = document.getElementById("btn5").innerHTML;
+            document.getElementById("demo5").innerHTML = x;
+        }
+    </script>
+
+    <h2>Find the id of the form a button belongs to</h2>
+
+    <form action="" id="form1">
+        <button id="btn6">HTML</button>
+    </form>
+
+    <p>Click the "Try it" button to display the id of the form the HTML button belongs to:</p>
+
+    <button onclick="myFunc6()">Try it</button>
+
+    <p id="demo6"></p>
+
+    <script>
+        function myFunc6(){
+            var x = document.getElementById("btn6").form.id;
+            document.getElementById("demo6").innerHTML = x;
+        }
+    </script>
+
+    <h1>Form Object</h1>
+
+    <h2>Submit a form</h2>
+
+    <form action="" id="frm7">
+        First name: <input type="text" name="fName"><br>
+        Last name: <input type="text" name="lName"><br>
+        <input type="button" value="Submit" onclick="myFunc7()">
+    </form>
+
+    <script>
+       function myFunc7() {
+           document.getElementById("frm7").submit();
+       }
+    </script>
+
+    <h2>Reset a form</h2>
+
+    <form action="" id="frm8">
+        First name: <input type="text" name="fName"><br>
+        Last name: <input type="text" name="lName"><br>
+        <input type="button" value="Reset" onclick="myFunc8()">
+    </form>
+
+    <script>
+        function myFunc8() {
+            document.getElementById("frm8").reset();
+        }
+    </script>
+
+    <h2>Find the value of each element in a form</h2>
+
+    <form action="" id="frm9">
+        First name: <input type="text" value="Ayesh" name="fName"><br>
+        Last name: <input type="text" value="Chathuranga" name="lName"><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <p>Click "Try it" to display the value of each element in the form</p>
+
+    <p id="demo9"></p>
+
+    <button onclick="myFunc9()">Try it</button>
+
+    <script>
+        function myFunc9(){
+            var x = document.getElementById("frm9");
+            var txt = "";
+            for(var i = 0;i < x.length;i++){
+                txt += x.elements[i].value + "<br>";
+            }
+            document.getElementById("demo9").innerHTML = txt;
+        }
+    </script>
+
+    <h2>Find the accepted character set of a form</h2>
+
+    <form action="action_page.php" accept-charset="ISO-8859-1" id="frm10">
+        First name: <input type="text" value="Ayesh" name="fName"><br>
+        Last name: <input type="text" value="Chathuranga" name="lName"><br>
+        <input type="submit" value="Submit">
+    </form>
+    
+    <p>Click "Try it" to display accept-charset of the form:</p>
+
+    <button onclick="myFunc10()">Try it</button>
+
+    <p id="demo10"></p>
+
+    <script>
+        function myFunc10() {
+            var x = document.getElementById("frm10").acceptCharset;
+            document.getElementById("demo10").innerHTML = x;
+        }
+    </script>
+
+    <h2>Find the action attribute of a form</h2>
+
+    <form action="action_page.php" id="frm11">
+        First name: <input type="text" value="Ayesh" name="fName"><br>
+        Last name: <input type="text" value="Chathuranga" name="lName"><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <p>Click "Try it" to display the value of the form's action attribute.</p>
+
+    <button onclick="myFunc11()">Try it</button>
+
+    <p id="demo11"></p>
+
+    <script>
+       function myFunc11() {
+           var x = document.getElementById("frm11").action;
+           document.getElementById("demo11").innerHTML = x;
+       }
+    </script>
+
+    <h2>Find the value of the enctype attribute in a form</h2>
+
+    <form action="" id="frm12">
+        First name: <input type="text" value="Ayesh" name="fName"><br>
+        Last name: <input type="text" value="Chathuranga" name="lName"><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <p>Click "Try it" to display the value of the enctype attribute of the form:</p>
+
+    <button onclick="myFunc12()">Try it</button>
+
+    <p id="demo12"></p>
+
+    <script>
+        function myFunc12() {
+            var x = document.getElementById("frm12").enctype;
+            document.getElementById("demo12").innerHTML = x;
+        }
+    </script>
+
+    <h2>Find the number of elements in a form</h2>
+
+    <form action="" id="frm13">
+        First name: <input type="text" value="Ayesh" name="fName"><br>
+        Last name: <input type="text" value="Chathuranga" name="lName"><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <p>Click "Try it" to display the number of elements the form</p>
+
+    <button onclick="myFunc13()">Try it</button>
+
+    <p id="demo13"></p>
+
+    <script>
+        function myFunc13(){
+            var x = document.getElementById("frm13").length;
+            document.getElementById("demo13").innerHTML = x;
+        }
+    </script>
+
+    <h2>Find the method for sending form data</h2>
+
+    <form action="action_page.php" method="post" id="frm14">
+        First name: <input type="text" value="Ayesh" name="fName"><br>
+        Last name: <input type="text" value="Chathuranga" name="lName"><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <p>Click "Try it" to display the value of the form method</p>
+
+    <button onclick="myFunc14()">Try it</button>
+
+    <p id="demo14"></p>
+
+    <script>
+        function myFunc14(){
+            var x = document.getElementById("frm14").method;
+            document.getElementById("demo14").innerHTML = x;
+        }
+    </script>
+
+    <h2>Find the name of a form</h2>
+
+    <form action="" name="form2" id="frm15">
+        First name: <input type="text" value="Ayesh"><br>
+        Last name: <input type="text" value="Chathuranga"><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <p>Click "Try it" to display the name of the form</p>
+
+    <button onclick="myFunc15()">Try it</button>
+
+    <p id="demo15"></p>
+        
+    <script>
+        function myFunc15() {
+            var x = document.getElementById("frm15").name;
+            document.getElementById("demo15").innerHTML = x;
+        }
+    </script>
+
+    <h2>Find the target of a form</h2>
+
+    <form action="" target="_self" id="frm16">
+        First name: <input type="text" value="Ayesh"><br>
+        Last name: <input type="text" value="Chathuranga"><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <p>Click "Try it" to display the target of the form</p>
+
+    <button onclick="myFunc16()">Try it</button>
+
+    <p id="demo16"></p>
+
+    <script>
+        function myFunc16() {
+            var x = document.getElementById("frm16").target;
+            document.getElementById("demo16").innerHTML = x;
+        }
+    </script>
+
+    <h1>Option and Select Objects</h1>
+
+    <h2>Disable and enable a dropdown list</h2>
+
+    <form action="">
+        <select name="" id="mySelect1">
+            <option value="">Orange</option>
+            <option value="">Mango</option>
+            <option value="">Apple</option>
+            <option value="">Banana</option>
+        </select>
+        <br><br>
+        <input type="button" value="Disable list" onclick="disable()">
+        <input type="button" value="Enable list" onclick="enable()">
+    </form>
+    
+    <script>
+        function disable() {
+            document.getElementById("mySelect1").disabled = true;
+        }
+        function enable() {
+            document.getElementById("mySelect1").disabled = false;
+        }
+    </script>
+
+    <h2>Get the id of the form that contains the dropdown list</h2>
+
+    <form action="" id="form3">
+        <select name="" id="mySelect2">
+            <option value="">Orange</option>
+            <option value="">Apple</option>
+            <option value="">Mango</option>
+            <option value="">Banana</option>
+        </select>
+    </form>
+
+    <p>The id of the form is: <span id="demo17"></span></p>
+
+    <script>
+        var x = document.getElementById("mySelect2").form.id;
+        document.getElementById("demo17").innerHTML = x;
+    </script>
+
+    <h2>Get the number of options in the dropdown list</h2>
+
+    <form action="">
+        <select name="" id="mySelect3">
+            <option value="">Apple</option>
+            <option value="">Pineapple</option>
+            <option value="">Mango</option>
+            <option value="">Orange</option>
+        </select>
+    </form>
+
+    <p>There are <span id="demo18"></span> option in the list.</p>
+
+    <script>
+         var x = document.getElementById("mySelect3").length;
+         document.getElementById("demo18").innerHTML = x;
+    </script>
+
+    <h2>Turn the dropdown list into a multiline list</h2>
+
+    <form action="">
+        <select name="" id="mySelect4">
+            <option value="">Apple</option>
+            <option value="">Orange</option>
+            <option value="">Mango</option>
+            <option value="">Pineapple</option>
+        </select>
+        <input type="button" value="Change Size" onclick="changeSize()">
+    </form>
+
+    <script>
+        function changeSize(){
+            var x = document.getElementById("mySelect4").length;
+            document.getElementById("mySelect4").size = x;
+        }
+    </script>
+
+    <h2>Select multiple options in a dropdown list</h2>
+
+    <p>Before you click "Select multiple", you cannot select more than one option (by holding down the Ctrl key).</p>
+    <p>After you have clicked "Select multiple", you can.</p>
+
+    <form action="">
+        <select name="" id="mySelect5">
+            <option value="">Apple</option>
+            <option value="">Mango</option>
+            <option value="">Orange</option>
+            <option value="">Banana</option>
+        </select>
+        <input type="button" value="Select multiple" onclick="selectMultiple()">
+    </form>
+
+    <script>
+        function selectMultiple() {
+            document.getElementById("mySelect5").multiple = true;
+        }
+    </script>
+
+    <h2>Display the selected option in a dropdown list</h2>
+
+    <form action="">
+        Select your favorite fruit:
+        <select name="" id="mySelect6">
+            <option value="">Apple</option>
+            <option value="">Pineapple</option>
+            <option value="">Orange</option>
+            <option value="">Mango</option>
+        </select>
+        <br><br>
+        <input type="button" value="Click Me!" onclick="getSelect()">
+    </form>
+
+    <p id="demo19"></p>
+
+    <script>
+        function getSelect() {
+            var obj = document.getElementById("mySelect6");
+            document.getElementById("demo19").innerHTML = obj.options[obj.selectedIndex].text;
+        }
+    </script>
+
+    <h2>Display all option from a dropdown list</h2>
+
+    <form action="">
+        Select your favorite fruit:
+        <select name="" id="mySelect7">
+            <option value="">Apple</option>
+            <option value="">Orange</option>
+            <option value="">Pineapple</option>
+            <option value="">Mango</option>
+        </select>
+        <br><br>
+        <input type="button" value="Output all options" onclick="getOptions()">
+    </form>
+
+    <p id="demo20"></p>
+
+    <script>
+        function getOptions() {
+            var x = document.getElementById("mySelect7");
+            var txt = "";
+            for(var i = 0;i < x.length;i++){
+                txt += " " + x.options[i].text;
+            }
+            document.getElementById("demo20").innerHTML = txt;
+        }
+    </script>
+
+    <h2>Dispaly the index of the selected option in a dropdown list</h2>
+
+    <form action="">
+        Select your favorite fruit:
+        <select name="" id="mySelect8">
+            <option value="">Apple</option>
+            <option value="">Mango</option>
+            <option value="">Orange</option>
+            <option value="">Banana</option>
+        </select>
+        <br><br>
+        <input type="button" value="Index of the selected option" onclick="getIndex()">
+    </form>
+
+    <p id="demo21"></p>
+
+    <script>
+        function getIndex() {
+            var x = document.getElementById("mySelect8").selectedIndex;
+            document.getElementById("demo21").innerHTML = x;
+        }
+    </script>
+
+    <h2>Change the text of the selected option</h2>
+
+    <form action="">
+        Select your favorite fruit:
+        <select name="" id="mySelect9">
+            <option value="">Apple</option>
+            <option value="">Mango</option>
+            <option value="">Orange</option>
+            <option value="">Banana</option>
+        </select>
+        <br><br>
+        <input type="text" id="text1">
+        <input type="button" value="Set text of selected option" onclick="changeText()">
+    </form>
+
+    <script>
+        function changeText(){
+            var y = document.getElementById("text1").value;
+            var x = document.getElementById("mySelect9");
+            x.options[x.selectedIndex].text = y;
+        }
+    </script>
+
+    <h2>Remove options from a dropdown list</h2>
+
+    <form action="">
+        <select name="" id="mySelect10">
+            <option value="">Apple</option>
+            <option value="">Mango</option>
+            <option value="">Orange</option>
+            <option value="">Banana</option>
+        </select>
+        <input type="button" value="Remove the selected option" onclick="removeOption()"> 
+    </form>
+
+    <script>
+        function removeOption() {
+            var x = document.getElementById("mySelect10");
+            x.remove(x.selectedIndex);
+        }
+    </script>
+
+</body>
+</html>

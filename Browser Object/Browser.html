@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Browser Objects Examples</title>
+</head>
+<body onload="checkCookie()">
+    <h1>Window Object</h1>
+
+    <h2>Open a new window when clicking on a button</h2>
+
+    <form action="">
+        <input type="button" value="Open window" onclick="openWin()">
+    </form>
+
+    <script>
+        function openWin() {
+            window.open("https://www.w3schools.com");
+        }
+    </script>
+
+    <h2>Open a new window and control its appearance</h2>
+
+    <form action="">
+        <input type="button" value="open window" onclick="openWin2()">
+    </form>
+
+    <script>
+        function openWin2() {
+            window.open("https://www.w3schools.com","_blank","toolbar=yes, location=yes, directories=no, status=no, menubar=yes, scrollbars=yes, resizable=no, copyhistory=yes, width=400, height=400");
+        }
+    </script>
+
+    <h2>Blur and Focus a new window</h2>
+
+    <form action="">
+        <input type="button" value="open new window" onclick="openWin3()">
+        <input type="button" value="blur new window" onclick="blurWin()">
+        <input type="button" value="focus new window" onclick="focusWin()">
+    </form>
+
+    <script>
+        var myWin;
+        function openWin3() {
+            myWin = window.open("","","width=400, height=400");
+            myWin.blur();
+        }
+        function blurWin() {
+            myWin.blur();
+        }
+        function focusWin() {
+            myWin.focus();
+        }
+    </script>
+
+    <h2>Close the new window</h2>
+
+    <input type="button" value="Open myWindow" onclick="openWin4()">
+    <input type="button" value="Close myWindow" onclick="closeWin()">
+
+    <script>
+        var myWin;
+        function openWin4() {
+            myWin = window.open("", "", "width=400, height=200");
+        }
+        function closeWin() {
+            myWin.close();
+        }
+    </script>
+
+    <h2>Checks whether the new window has been closed or not</h2>
+
+    <button onclick="openWin5()">Open myWindow</button>
+    <button onclick="closeWin2()">Close myWindow</button>
+    <button onclick="checkWin()">Is myWindow open?</button>
+
+    <br><br>
+    <div id="msg"></div>
+
+    <script>
+        var myWin;
+        function openWin5() {
+            myWin = window.open("", "", "width=400, height=200");
+        }
+        function closeWin2() {
+            if (myWin) {
+                myWin.close();
+            }
+        }
+        function checkWin() {
+            var msg;
+            if (!myWin) {
+                msg = "not opened";
+            } else {
+                if (myWin.closed) {
+                    msg = "closed";
+                } else {
+                    msg = "opened";
+                }
+            }
+
+            document.getElementById("msg").innerHTML = "myWindow is " + msg;
+        }
+    </script>
+
+    <h2>Write some text to the source (parent) window</h2>
+
+    <button onclick="openWin6()">Open Window</button>
+
+    <p id="demo"></p>
+
+    <script>
+        var myWin;
+        function openWin6() {
+            myWin = window.open("", "", "width=400, height=200");
+
+            myWin.opener.document.getElementById("demo").innerHTML = "A new window has been opened";
+        }
+    </script>
+
+    <h2>Move the new window relative to its current position</h2>
+
+    <input type="button" value="Open window" onclick="openWin7()">
+    <input type="button" value="Move window" onclick="moveWin()">
+
+    <script>
+        var myWin;
+        function openWin7() {
+            myWin = window.open("", "", "width=400, height=200");
+        }
+        function moveWin() {
+            myWin.moveBy(250, 250);
+        }
+    </script>
+
+    <h2>Move the new window to the specified position</h2>
+
+    <input type="button" value="Open window" onclick="openWin8()">
+    <input type="button" value="Move window" onclick="moveWin2()">
+
+    <script>
+        var myWin;
+        function openWin8() {
+            myWin = window.open("", "", "width=400, height=200");
+        }
+        function moveWin2() {
+            myWin.moveTo(300, 0);
+            myWin.focus();
+        }
+    </script>
+
+    <h2>Print the current page</h2>
+
+    <input type="button" value="Print this page" onclick="printPage()">
+
+    <script>
+        function printPage() {
+            window.print();
+        }
+    </script>
+
+    <h2>Resize a window by the specified pixels</h2>
+
+    <button onclick="openWin9()">Create window</button>
+    <button onclick="resize()">Resize window</button>
+
+    <script>
+        var w;
+        function openWin9() {
+            w = window.open("", "", "width=100,height=100");
+            w.focus();
+        }
+        function resize() {
+            w.resizeBy(50, 50);
+            w.focus();
+        }
+    </script>
+
+    <h2>Resize a window to a specified size</h2>
+
+    <button onclick="openWin10()">Create window</button>
+    <button onclick="resizeTo()">Resize window</button>
+    
+    <script>
+        var w;
+        function openWin10() {
+            w = window.open("", "", "width=100, height=100");
+            w.focus();
+        }
+        function resizeTo() {
+            w.resizeTo(500, 500);
+            w.focus();
+        }
+    </script>
+
+    <h2>Scroll the content by the specified number of pixels</h2>
+
+    <input type="button" value="Scroll" onclick="scrollWin()">
+
+    <script>
+        function scrollWin() {
+            window.scrollBy(0, 10);
+        }
+    </script>
+
+    <h3>Reserved Words</h3>
+
+    <hr>
+    <p>You cannot use reserved words as variables, labels, or function names:</p>
+    <hr>
+    <br>
+    abstract <br><br>
+    arguments <br><br>
+    boolean <br><br>
+    break <br><br>
+    byte <br><br>
+    case <br><br>
+    catch <br><br>
+    char <br><br>
+    class <br><br>
+    const <br><br>
+    continue <br><br>
+    debugger <br><br>
+    default <br><br>
+    delete <br><br>
+    do <br><br>
+    double <br><br>
+    else <br><br>
+    enum <br><br>
+    eval <br><br>
+    export <br><br>
+    extends <br><br>
+    false <br><br>
+    false <br><br>
+    final <br><br>
+    float <br><br>
+    for <br><br>
+    function <br><br>
+    goto <br><br>
+    if <br><br>
+    implements <br><br>
+    import <br><br>
+    in <br><br>
+    instanceof <br><br>
+    let <br><br>
+    long <br><br>
+    native <br><br>
+    new <br><br>
+    null <br><br>
+    package <br><br>
+    private <br><br>
+    protected <br><br>
+    public <br><br>
+    return <br><br>
+    short <br><br>
+    static <br><br>
+    super <br><br>
+    switch <br><br>
+    synchronized <br><br>
+    this <br><br>
+    throw <br><br>
+    transient <br><br>
+    true <br><br>
+    try <br><br>
+    typeof <br><br>
+    var <br><br>
+    void <br><br>
+    volatile <br><br>
+    while <br><br>
+    with <br><br>
+    yield <br><br>
+
+    <h2>Scroll the content to a specified position</h2>
+
+    <input type="button" value="Scroll" onclick="resizeWin2()">
+
+    <script>
+        function resizeWin2() {
+            window.scrollTo(0, 3500);
+        }
+    </script>
+
+    <h3>Reserved Words</h3>
+
+    <hr>
+    <p>You cannot use reserved words as variables, labels, or function names:</p>
+    <hr>
+    <br>
+    abstract <br><br>
+    arguments <br><br>
+    boolean <br><br>
+    break <br><br>
+    byte <br><br>
+    case <br><br>
+    catch <br><br>
+    char <br><br>
+    class <br><br>
+    const <br><br>
+    continue <br><br>
+    debugger <br><br>
+    default <br><br>
+    delete <br><br>
+    do <br><br>
+    double <br><br>
+    else <br><br>
+    enum <br><br>
+    eval <br><br>
+    export <br><br>
+    extends <br><br>
+    false <br><br>
+    false <br><br>
+    final <br><br>
+    float <br><br>
+    for <br><br>
+    function <br><br>
+    goto <br><br>
+    if <br><br>
+    implements <br><br>
+    import <br><br>
+    in <br><br>
+    instanceof <br><br>
+    let <br><br>
+    long <br><br>
+    native <br><br>
+    new <br><br>
+    null <br><br>
+    package <br><br>
+    private <br><br>
+    protected <br><br>
+    public <br><br>
+    return <br><br>
+    short <br><br>
+    static <br><br>
+    super <br><br>
+    switch <br><br>
+    synchronized <br><br>
+    this <br><br>
+    throw <br><br>
+    transient <br><br>
+    true <br><br>
+    try <br><br>
+    typeof <br><br>
+    var <br><br>
+    void <br><br>
+    volatile <br><br>
+    while <br><br>
+    with <br><br>
+    yield <br><br>
+
+    <h1>Screen Object</h1>
+
+    <h2>The visitor's screen: Width</h2>
+
+    <p id="demo2"></p>
+
+    <script>
+        document.getElementById("demo2").innerHTML = "Screen width is " + screen.width;
+    </script>
+
+    <h2>The visitor's screen: Height</h2>
+
+    <p id="demo3"></p>
+
+    <script>
+        document.getElementById("demo3").innerHTML = "Screen height is " + screen.height;
+    </script>
+
+    <h2>The visitor's screen: Available Width</h2>
+
+    <p id="demo4"></p>
+
+    <script>
+        document.getElementById("demo4").innerHTML = "Available screen width is " + screen.availWidth;
+    </script>
+
+    <h2>The visitor's screen: Available Height</h2>
+
+    <p id="demo5"></p>
+
+    <script>
+        document.getElementById("demo5").innerHTML = "Available screen height is " + screen.availHeight;
+    </script>
+
+    <h2>The visitor's screen: Color Depth</h2>
+
+    <p id="demo6"></p>
+
+    <script>
+        document.getElementById("demo6").innerHTML = "Screen color depth is " + screen.colorDepth;
+    </script>
+
+    <h2>The visitor's screen: Pixel Depth</h2>
+
+    <p id="demo7"></p>
+
+    <script>
+        document.getElementById("demo7").innerHTML = "Screen pixel depth is " + screen.pixelDepth;
+    </script>
+
+    <h1>Location Object</h1>
+
+    <h2>Return the port of the current URL</h2>
+
+    <p id="demo8"></p>
+
+    <p><b>Note: </b>If the port number is  default (80 for http and 443 for https), most browsers will display 0 or nothing</p>
+
+    <script>
+        document.getElementById("demo8").innerHTML = "The URL port number of the current page is: " + window.location.port;
+    </script>
+
+    <h2>Return the hostname of the current URL</h2>
+
+    <p id="demo9"></p>
+
+    <script>
+        document.getElementById("demo9").innerHTML = "The hostname is: " + window.location.hostname;
+    </script>
+
+    <h2>Return the entire URL of the current page</h2>
+
+    <p id="demo10"></p>
+
+    <script>
+       document.getElementById("demo10").innerHTML = "The full URL of this page is: " + window.location.href;
+    </script>
+
+    <h2>Return the path name of the current URL</h2>
+
+    <p id="demo11"></p>
+
+    <script>
+        document.getElementById("demo11").innerHTML = "Page path is: " + window.location.pathname;
+    </script>
+
+    <h2>Return the protocol portion of the current URL</h2>
+
+    <p id="demo12"></p>
+
+    <script>
+        document.getElementById("demo12").innerHTML = "The protocol is: " + window.location.protocol;
+    </script>
+
+    <h2>Load a new document</h2>
+
+    <input type="button" value="Load new document" onclick="newDoc()">
+
+    <script>
+       function newDoc() {
+            window.location.assign("https://www.w3schools.com");
+       }
+    </script>
+
+    <h2>Replace the current document</h2>
+
+    <input type="button" value="Replace document" onclick="window.location.replace('https://www.w3schools.com')">
+
+    <h2>Break out of a frame</h2>
+
+    <input type="button" value="Break out of frame!" onclick="breakOut()">
+
+    <script>
+        function breakOut() {
+            if (window.top != window.self) {
+                window.top.location = "Browser.html";
+            }
+        }
+    </script>
+
+    <h1>History Object</h1>
+
+    <h2>Display the number of URLs in the history list</h2>
+
+    <button onclick="myFunc()">Try it</button>
+
+    <p id="demo13"></p>
+
+    <script>
+        function myFunc() {
+            document.getElementById("demo13").innerHTML = history.length;
+        }
+    </script>
+
+    <h2>Create a back button on a page</h2>
+
+    <button onclick="goBack()">Go Back</button>
+
+    <p>Clicking on the Back button here will not result in any action, because there is no previous URL in the history list.</p>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
+    <h2>Create a forward button on a page</h2>
+
+    <button onclick="goForward()">Go Forward</button>
+
+    <p>Clicking on the Forward button here will not result in any action, because there is no next URL in the history list.</p>
+
+    <script>
+        function goForward() {
+            window.history.forward();
+        }
+    </script>
+
+    <h2>Load a specific URL from the history list</h2>
+
+    <button onclick="goBack2()">Go 2 pages back</button>
+
+    <p>Clicking on the "Go 2 page back" button here will not result in any action, because there is no previous URL in the history list.</p>
+
+    <script>
+        function goBack2() {
+            window.history.go(-2);
+        }
+    </script>
+
+    <h1>Navigator Object</h1>
+
+    <h2>Is cookies enabled in the visitor's browser?</h2>
+
+    <p>The cookieEnabled property returns true if cookies are enabled</p>
+
+    <p id="demo14"></p>
+
+    <script>
+        document.getElementById("demo14").innerHTML = "navigator.cookieEnabled is " + navigator.cookieEnabled;
+    </script>
+
+    <h2>What is the name of the visitor's browser?</h2>
+
+    <p>The appCodeName property returns the code name of the browser.</p>
+
+    <p>Do not reply on it! "Mozilla" is the application code name for Chrome, Firefox, IE, Safari and Opera.</p>
+
+    <p id="demo15"></p>
+
+    <script>
+        document.getElementById("demo15").innerHTML = "navigator.appCodeName is " + navigator.appCodeName;
+    </script>
+
+    <h2>What is the engine name of the visitor's browser?</h2>
+
+    <p>The product property returns the product name of the browser.</p>
+
+    <p>Do not reply on it! Most browsers returns "Gecko" as product name!</p>
+
+    <p id="demo16"></p>
+
+    <script>
+        document.getElementById("demo16").innerHTML = "Browser engine is " + navigator.product;
+    </script>
+
+    <h2>What is the version information of the visitor's browser?</h2>
+
+    <p>The appVersion property returns version information about the browser:</p>
+
+    <p id="demo17"></p>
+
+    <script>
+       document.getElementById("demo17").innerHTML = navigator.appVersion;
+    </script>
+
+    <h2>What is user agent information of the visitor's browser?</h2>
+
+    <P>The userAgent property returns the user-agent header sent by the browser to the server:</P>
+
+    <p id="demo18"></p>
+
+    <script>
+        document.getElementById("demo18").innerHTML = navigator.userAgent;
+    </script>
+
+    <h2>What is the platform of the visitor's browser?</h2>
+
+    <p>The platform property returns the browser platform (operating system):</p>
+
+    <p id="demo19"></p>
+
+    <script>
+        document.getElementById("demo19").innerHTML = "navigator.platform is " + navigator.platform;
+    </script>
+
+    <h2>What is the language of the visitor's browser?</h2>
+
+    <p>The language property returns the browser's language:</p>
+
+    <p id="demo20"></p>
+
+    <script>
+       document.getElementById("demo20").innerHTML = "navigator.language is " + navigator.language;
+    </script>
+
+    <h2>Is Java enabled in the visitor's browser?</h2>
+
+    <p>The javaEnabled() method returns true if Java is enabled:</p>
+
+    <p id="demo21"></p>
+
+    <script>
+        document.getElementById("demo21").innerHTML = "javaEnabled is " + navigator.javaEnabled();
+    </script>
+
+    <h1>Popup Boxes</h1>
+
+    <h2>Display an alert box</h2>
+
+    <button onclick="myFunc2()">Try it</button>
+
+    <script>
+        function myFunc2() {
+            alert("I am an alert box!");
+        }
+    </script>
+
+    <h2>Demonstrate line breaks in an alert box</h2>
+
+    <button onclick="alert('Hello\nHow are you?')">Try it</button>
+
+    <h2>Display a confirm box</h2>
+
+    <button onclick="myFunc3()">Try it</button>
+
+    <p id="demo22"></p>
+
+    <script>
+       function myFunc3() {
+           var txt;
+           if (confirm("Press a button!")) {
+               txt = "You pressed OK!";
+           } else {
+               txt = "You pressed Cancel!";
+           }
+           document.getElementById("demo22").innerHTML = txt;
+       }
+    </script>
+
+    <h2>Display a prompt box</h2>
+
+    <button onclick="myFunc4()">Try it</button>
+
+    <p id="demo23"></p>
+
+    <script>
+        function myFunc4() {
+            var txt;
+            var person = prompt("Please enter your name:", "Ayesh Chathuranga");
+            if (person == null || person == "") {
+                txt = "User cancelled prompt";
+            } else {
+                txt = "Hello " + person + "! How are you today!";
+            }
+            document.getElementById("demo23").innerHTML = txt;
+        }
+    </script>
+
+    <h1>Timing</h1>
+
+    <h2>Simple timing</h2>
+
+    <p>Click "Try it". Wait 3 seconds, and the page will alert "Hello".</p>
+
+    <button onclick="setTimeout(myFunc5, 2000)">Try it</button>
+
+    <script>
+        function myFunc5() {
+            alert("Hello");
+        }
+    </script>
+
+    <h2>Another simple timing</h2>
+
+    <p id="demo24">I will display when two, four and six have passed</p>
+
+    <script>
+        setTimeout(myTimeout1, 2000)
+        setTimeout(myTimeout2, 4000)
+        setTimeout(myTimeout3, 6000)
+
+        function myTimeout1() {
+            document.getElementById("demo24").innerHTML = "2 seconds";
+        }
+        function myTimeout2() {
+            document.getElementById("demo24").innerHTML = "4 seconds";
+        }
+        function myTimeout3() {
+            document.getElementById("demo24").innerHTML = "6 seconds";
+        }
+    </script>
+
+    <h2>Timing event in an infinite loop</h2>
+
+    <button onclick="setInterval(myCounter, 1000)">Start count!</button>
+
+    <p id="demo25">Click on the button above and I will counter forever.</p>
+
+    <script>
+        var c = 0;
+        function myCounter() {
+            document.getElementById("demo25").innerHTML = ++c;
+        }
+    </script>
+
+    <h2>Timing event in an infinite loop - with a stop button</h2>
+
+    <button onclick="myTimer = setInterval(myCounter2, 1000)">Start count!</button>
+
+    <p id="demo26">Click on the button above and I will count forever.</p>
+
+    <button onclick="clearInterval(myTimer)">Stop counter!</button>
+
+    <script>
+        var c = 0;
+        function myCounter2() {
+            document.getElementById("demo26").innerHTML = ++c;
+        }
+    </script>
+
+    <h2>Set and stop a timer with setInterval() and clearInterval()</h2>
+
+    <p id="demo27">Clock</p>
+
+    <button onclick="clearInterval(myTimer2)">Stop</button>
+
+    <script>
+        var myTimer2 = setInterval(myClock, 1000);
+        function myClock() {
+            document.getElementById("demo27").innerHTML = new Date().toLocaleTimeString();
+        }
+    </script>
+
+    <h2>A clock created with a timing event</h2>
+
+    <button onclick="startTimer()">Show clock</button>
+
+    <p id="txt"></p>
+
+    <script>
+        function startTimer() {
+            var today = new Date();
+            var h = today.getHours();
+            var PmOrAm = h >= 12 ? "PM" : "AM";
+            h = (h % 12) || 12;
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            m = checkTime(m);
+            s = checkTime(s);
+
+            var nowTime = h + ":" + m + ":" + s + " " + PmOrAm;
+            document.getElementById("txt").innerHTML = nowTime;
+            setTimeout(startTimer, 1000);
+        }
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+    </script>
+
+    
+</body>
+</html>

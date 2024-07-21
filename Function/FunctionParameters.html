@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function parameters</title>
+</head>
+<body>
+
+    <h1>Function Parameters</h1>
+
+    <h3>A JavaScript function does not perform any checking on parameter values (arguments).</h3>
+
+    <h1>Function Parameters and Arguments</h1>
+
+    <h3>Earlier in this tutorial, you learned that function can have parameters:</h3>
+
+    <div>function functionName(parameter1, parameter2, parameter3) { <br>
+         // code to be executed <br>
+        }
+    </div>
+
+    <h3>Function parameters are the names listed in the function definition.</h3>
+
+    <h3>Function arguments are the real values passed to (and received by) the function.</h3>
+
+    <h1>Parameter Rules</h1>
+
+    <h3>JavaScript function definitions do not specify data types for parameters.</h3>
+
+    <h3>JavaScript function definition do not perform type checking on the passed arguments.</h3>
+
+    <h3>JavaScript function do not check the number of arguments received.</h3>
+
+    <h1>Default Parameters</h1>
+
+    <h3>If a function is called with missing arguments (less than declared), the missing values are set to undefined.</h3>
+
+    <h3>Sometimes this is acceptable, but sometimes it is better to assign a default value to the parameter:</h3>
+
+    <p id="demo"></p>
+
+    <script>
+        function myFunc(x, y) {
+            if (y === undefined) {
+                y = 2;
+            }
+            return x * y;
+            
+        }
+        document.getElementById("demo").innerHTML = myFunc(4);
+    </script>
+
+    <h3>ECMAScript 2015 allows default parameter values in the function declaration:</h3>
+    
+    <p id="demo2"></p>
+
+    <script>
+        function myFunc(x, y = 2) {
+            return x * y;
+        }
+        document.getElementById("demo2").innerHTML = myFunc(4);
+    </script>
+
+    <h1>The Arguments Object</h1>
+
+    <h3>JavaScript functions have a built-in object called the arguments object.</h3>
+
+    <h3>The arguments object contains an array of the arguments used when the function was called (invoked).</h3>
+
+    <h3>This way you can simply use a function to find (for instance) the highest value in a list of numbers:</h3>
+
+    <p id="demo3"></p>
+
+    <script>
+        function findMax() {
+            var max = -Infinity;
+            for(var i = 0; i < arguments.length; i++) {
+                if (arguments[i] > max) {
+                    max = arguments[i];
+                }
+            }
+            return max;
+        }
+        document.getElementById("demo3").innerHTML = findMax(4, 5, 6);
+    </script>
+
+    <h3>Or create a function to sum all input values:</h3>
+
+    <p id="demo4"></p>
+
+    <script>
+        function sumAll() {
+            var sum = 0;
+            for(var i = 0; i < arguments.length; i++) {
+                sum += arguments[i];
+            }
+            return sum;
+        }
+        document.getElementById("demo4").innerHTML = sumAll(1, 123, 115, 500, 88, 44)
+    </script>
+
+    <p>If a function is called with too many arguments (more than declared), these arguments can be reached using the arguments object.</p>
+
+    <h1>Arguments are passed by Value</h1>
+
+    <h3>The parameters, in a function call, are the function's arguments.</h3>
+
+    <h3>JavaScript arguments are passed by value: The function only gets to know the value, not the argument's locations.</h3>
+
+    <h3>If a function changes an arguments's value, it does not change the parameter's original value.</h3>
+
+    <p><b>Changes to arguments are not visible (reflected) outside the function.</b></p>
+
+    <h1>Objects are Passed by Reference</h1>
+
+    <h3>In JavaScript, object references are values.</h3>
+
+    <h3>Because of this, objects will behave like they are passed by reference:</h3>
+
+    <h3>If a function changes an object property, it changes the original value.</h3>
+
+    <p><b>Chagnes to object properties are visible (reflected) outside the function.</b></p>
+    
+</body>
+</html>

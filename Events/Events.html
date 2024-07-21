@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript HTML DOM Events</title>
+</head>
+<body onkeyup="whichButton(event)">
+    <h1>Input Events</h1>
+
+    <h2>onblur - When a user leaves an input field</h2>
+
+    <p>When you leave the input field, a function is triggered which transforms the input text to uppercase.</p>
+
+    Enter your name: <input type="text" onblur="myFunc()" id="fName">
+
+    <script>
+        function myFunc() {
+            var x = document.getElementById("fName");
+            x.value = x.value.toUpperCase();
+        }
+    </script>
+
+    <h2>onchange - When a user changes the content of an input field</h2>
+
+    <p>When you leave the input field, a function is triggered which transforms the input text to uppercase.</p>
+
+    Enter your name: <input type="text" onchange="myFunc2()" id="fName2">
+
+    <script>
+        function myFunc2() {
+            var x = document.getElementById("fName2");
+            x.value = x.value.toUpperCase();
+        }
+    </script>
+
+    <h2>onchange - When a user selects a dropdown value</h2>
+
+    <form action="">
+        Choose which browser you prefer:
+        <select name="" onchange="preferedBrowser()" id="browser">
+            <option value="Chrome">Chrome</option>
+            <option value="Internet Explorer">Internet Explorer</option>
+            <option value="Firefox">Firefox</option>
+        </select>
+    </form>
+
+    <script>
+        function preferedBrowser() {
+            var prefer = document.forms[0].browser.value;
+            alert("You prefer browsing internet with " + prefer);
+        }
+    </script>
+
+    <h2>onfocus - When an input field gets focus</h2>
+
+    <p>When the input field gets focus, a funtion is triggered which changes the backgroundColor</p>
+
+    Enter your name: <input type="text" onfocus="myFunc3(this)">
+
+    <script>
+        function myFunc3(x) {
+            x.style.backgroundColor = "yellow";
+        }
+    </script>
+
+    <h2>onselect - When input text is selected</h2>
+
+    Some text: <input type="text" value="Hello world!" onselect="myFunc4()">
+
+    <script>
+        function myFunc4() {
+            document.getElementById("demo4").innerHTML = "You selected some text";
+        }
+    </script>
+
+    <p id="demo4"></p>
+
+    <h2>onsubmit - When a user clicks the submit button</h2>
+
+    <form action="https://www.w3schools.com" onsubmit="confirmInput()">
+        Enter name: <input type="text" id="fName3">
+        <input type="submit">
+    </form>
+
+    <script>
+        function confirmInput(){
+            var fName = document.forms[1].fName3.value;
+            alert("Hello "+ fName + "! You will now be redirected www.w3schools.com");
+        }
+    </script>
+
+    <h2>onreset - When a user clicks the reset button</h2>
+
+    <form action="" onreset="message()">
+        Enter name: <input type="text">
+        <input type="reset">
+    </form>
+
+    <script>
+        function message() {
+            alert("This alert box was triggered by thd event handler");
+        }
+    </script>
+
+    <h2>onkeydown - When a user is pressing/holding down a key</h2>
+
+    <p>A function is triggered when the user is pressing a key in the input field.</p>
+
+    <input type="text" onkeydown="message2()">
+
+    <script>
+        function message2() {
+            alert("You pressed a key inside the input field");
+        }
+    </script>
+
+    <h2>onkeypress - When a user is pressing/holding down a key</h2>
+
+    <p>A function is triggered when the user is pressing a key in the input field.</p>
+
+    <input type="text" onkeypress="message3()">
+
+    <script>
+        function message3() {
+            alert("You pressed a key inside the input field");
+        }
+    </script>
+
+    <h2>onkeyup - When the user releases a key</h2>
+
+    <p>A function is triggered when the user release a key in the input field.The function transforms the character to uppercase.</p>
+
+    Enter name: <input type="text" onkeyup="myFunc5()" id="fName5">
+
+    <script>
+        function myFunc5() {
+            var x = document.getElementById("fName5");
+            x.value = x.value.toUpperCase();
+        }
+    </script>
+
+    <h2>onkeyup - When the user releases a key</h2>
+
+    <p>The onkeyup event occurs when the a keyboard key is on its way UP</p>
+
+    <form action="">
+        Enter name: <input type="text" onkeyup="writeMessage()" name="myInput">
+        <input type="text" name="mySInput">
+    </form>
+
+    <script>
+        function writeMessage() {
+            document.forms[3].mySInput.value = document.forms[3].myInput.value;
+        }
+    </script>
+
+    <h2>onkeydown vs onkeyup - Both</h2>
+
+    <form action="">
+        Enter name: <input type="text" onkeyup="color('yellow')" onkeydown="color('pink')" name="myInput2">
+    </form>
+
+    <script>
+        function color(color) {
+            document.forms[4].myInput2.style.background = color;
+        }
+    </script>
+
+    <h1>Mouse Events</h1>
+
+    <h>onmouseover/onmouseout - When the mouse passes over an element</h2>
+
+    <h3 onmouseover="style.color='red'" onmouseout="style.color='blue'">mouse over this text</h3>
+
+    <h2>onmousedown/onmouseup - When pressing/releasing a mouse button</h2>
+
+    <p onmousedown="myFunc6(this,'yellow')" onmouseup="myFunc6(this,'green')">Click the text to change the color. A function, with parameters, is triggered when the mouse button is pressed down, and again, with other parameters, when the mouse button is released</p>
+
+    <script>
+        function myFunc6(elmnt,clr) {
+            elmnt.style.color = clr;
+        }
+    </script>
+
+<!-- </body>
+<body onmousedown="whichElement2(event)">
+
+    <h2>onmousedown - When mouse is clicked: Alert which element</h2>
+
+    <p>Click somewhere in the document. An alert box will alert the name of the element you clicked on.</p>
+    <h3>This is heading</h3>
+    <img src="smiley.gif" alt="Smiley">
+    <p>This is a paragraph</p>
+
+    <script>
+        function whichElement(e) {
+            var targ;
+            if(!e) {
+                e = window.event;
+            }
+            if(e.target) {
+                targ = e.target;
+            } else if (e.srcElement) {
+                targ = e.srcElement;
+            }
+            var tname = targ.tagName;
+            alert("You clicked on a " + tname + " element");
+        }
+    </script> -->
+
+
+    <h2>onmousedown - When mouse is clicked: Alert which button</h2>
+    
+    <div onmousedown="whichButton()">Click this text (with one of your mouse- buttons
+    <p>
+        0 Specifies the left mouse-button <br>
+        1 Specifies the middle mouse-button <br>
+        2 Specifies the right mouse-button <br>
+    </p>
+    <p><b>Note: </b>Internet Explorer 8, and earlier, returns another result: <br>
+        2 Specifies the left mouse-button <br>
+        4 Specifies the middle mouse-button <br>
+        2 Specifies the right mouse-button <br> 
+    </p>
+    </div>
+    
+    <script>
+        function whichButton() {
+            alert("You pressed button: " + event.button);
+        }
+    </script>
+
+    <h2>onmousemove/onmouseout - When moving the mouse pointer over/out of an image</h2>
+    
+    <p>Mouse over the rectangle above, and get the coordinates of your mouse pointer.</p>
+
+    <div id="coordiv" style="width: 200px;height: 100px;border: 1px solid;" onmousemove="myFunc7(event)" onmouseout="clearCoor()"></div>
+
+    <p id="demo5"></p>
+
+    <script>
+        function myFunc7(e) {
+            var x = e.clientX;
+            var y = e.clientY;
+            var coor = "Coordinates: (" + x + "," + y + ")";
+            document.getElementById("demo5").innerHTML = coor;
+        }
+        function clearCoor() {
+            document.getElementById("demo5").innerHTML = "";
+        }
+    </script>
+
+    <h2>onmouseover/onmouseout - When moving the mouse over/out of an image</h2>
+
+    <p>The function bigImag() is triggered when the user moves the mouse pointer over the image.</p>
+    <p>The function normalImg() is triggered when the mouse pointer is moved out of the image.</p>
+
+    <img src="smiley.gif" alt="Smiley" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
+
+    <script>
+        function bigImg(x) {
+            x.style.height = "64px";
+            x.style.width = "64px";
+        }
+
+        function normalImg(x) {
+            x.style.height = "32px";
+            x.style.width = "32px";
+        }
+    </script>
+
+    <h2>onmouseover an image map</h2>
+
+    <img src="planets.gif" alt="Planet" usemap="#planetmap">
+
+    <map name="planetmap">
+        <area shape="rect" coords="0,0,82,126" href="sun.gif" alt="Sun" target="_blank" onmouseover="writeText('The Sun and the gas giant planets like Jupiter are by far the largest objects in our Solar System.')">
+    </map>
+
+    <p id="desc">Mouse over the sun and the planets and see the different description</p>
+
+    <script>
+        function writeText(x) {
+            document.getElementById("desc").innerHTML = x;
+        }
+    </script>
+
+    <h1>Click Events</h1>
+
+    <h2>Acting to the onclick event</h2>
+
+    <p id="demo7">This is paragraph</p>
+
+    <button onclick="displayDate()">Display Date</button>
+
+    <script>
+        function displayDate() {
+            document.getElementById("demo7").innerHTML = Date();
+        }
+    </script>
+
+    <h2>onclick - When button is clicked</h2>
+
+    <button onclick="myFunc8()">Click me</button>
+
+    <p id="demo8"></p>
+
+    <script>
+        function myFunc8() {
+            document.getElementById("demo8").innerHTML = "Hello World!";
+        }
+    </script>
+
+    <h2>ondblclick - When a text is double-clicked</h2>
+
+    <p onclick="myFunc9()">This paragraph trigger a function</p>
+
+    <p id="demo9"></p>
+
+    <script>
+        function myFunc9() {
+            document.getElementById("demo9").innerHTML = "Hello World!";
+        }
+    </script>
+
+    <h1>Load Events</h1>
+
+    <h2>onload - When the page has been loaded</h2>
+
+    <h3>Hello World!</h3>
+
+    <!-- <script>
+        function myFunc10() {
+            alert("Page is loaded");
+        }
+    </script> -->
+
+    <h2>onload - When an image has been loaded</h2>
+
+    <img src="w3javascript.gif" onload="loadImage()" alt="">
+
+    <!-- <script>
+        function loadImage() {
+            alert("Image is loaded");
+        }
+    </script> -->
+
+    <h2>onerror - When an error occurs when loading an image</h2>
+
+    <img src="img.gif" onerror="imgError()" alt="">
+    
+    <p>A function is triggered if an error occurs when loading the image. The function shows an alert box with a text. In this example we refer to an image that does not exist, therefore the onerror event occurs.</p>
+
+    <!-- <script>
+        function imgError() {
+            alert("Image could not be loaded");
+        }
+    </script> -->
+
+    <h2>onunload - When the browser closes the document</h2>
+
+    <h3>Welcome to my Home page</h3>
+
+    <p>Close this window or press F5 to reload the page</p>
+
+    <script>
+        function myFunc11() {
+            alert("Thank you for visiting w3schools!");
+        }
+    </script>
+
+    <h2>onresize - When the browser window is resized</h2>
+
+    <p>Try to resize the browser window</p>
+
+    <p id="demo12"></p>
+
+    <p>Note: this example will not work properly in IE8 and earlier. IE8 and earlier do not support the outerWidth/outerHeight propery of the window object</p>
+
+    <script>
+        function myFunc12() {
+            var w = window.outerWidth;
+            var h = window.outerHeight;
+            var txt = "Window size:width = " + w + ", height = " + h;
+
+            document.getElementById("demo12").innerHTML = txt;
+        }
+    </script>
+
+    <h1>Others</h1>
+
+    <h2>What is the keycode of the key pressed?</h2>
+
+    <p><b>Note:</b> Make sure the right frames has focus when trying this example!</p>
+
+    <p>Click on this page, and press a key on your keyboard.</p>
+
+    <p id="demo13"></p>
+
+    <script>
+        function whichButton(event) {
+            document.getElementById("demo13").innerHTML = event.keyCode;
+        }
+    </script>
+
+    <h2>What are the coordinates of the cursor?</h2>
+
+    <p onmousedown="show_coords(event)">Click this paragraph to display the x and y coordinates of the mouse pointer.</p>
+
+    <p id="demo14"></p>
+
+    <script>
+        function show_coords(event) {
+            document.getElementById("demo14").innerHTML = 
+            "X = " + event.clientX + 
+            "<br>Y = " + event.clientY;
+        }
+    </script>
+
+    <h2>What are the coordinates of the cursor, relative to the screen?</h2>
+
+    <p onmousedown="coordinates(event)">Click this paragraph, to display the x and y coordinates of the cursor, relative to the screen</p>
+
+    <p id="demo15"></p>
+
+    <script>
+        function coordinates(event) {
+            document.getElementById("demo15").innerHTML = 
+            "X = " + event.screenX + 
+            "<br>Y = " + event.screenY;
+        }
+    </script>
+
+    <h2>Was the shift key pressed?</h2>
+
+    <p onmousedown="isKeyPressed(event)">Click on this paragraph. An alert box will tell you if you pressed the shift key or not</p>
+
+    <p id="demo16"></p>
+
+    <script>
+        function isKeyPressed(event) {
+            var txt = "The shift key was not pressed";
+            if(event.shiftKey == 1) {
+                var txt = "The shift key was pressed";
+            }
+            document.getElementById("demo16").innerHTML = txt;
+        }
+    </script>
+
+    <h2>Which event type occurred?</h2>
+
+    <p onmousedown="getEventType(event)">Click on this paragraph. A message will tell what type of event was triggered.</p>
+
+    <p id="demo17"></p>
+
+    <script>
+        function getEventType(event) {
+            document.getElementById("demo17").innerHTML = event.type;
+        }
+    </script>
+
+
+</body>
+</html>

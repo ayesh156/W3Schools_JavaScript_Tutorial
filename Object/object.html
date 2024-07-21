@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript HTML Objects</title>
+    <!-- <base href="https://www.w3schools.com" id="htmldom">
+    <base href="https://www.w3schools.com" target="_self" id="htmldom2"> -->
+</head>
+<body>
+    <h2>Anchor Object</h2>
+
+    <p><a href="https://www.w3schools.com" id="myAnchor"></a></p>
+
+    <p>Click the button to display the value of the href attribute of the link above</p>
+
+    <button onclick="myFunc1()">Try it</button>
+
+    <p id="demo1"></p>
+
+    <script>
+        function myFunc1() {
+            var x = document.getElementById("myAnchor").href;
+            document.getElementById("demo1").innerHTML = x;
+        }
+    </script>
+
+    <h2>Find the value of the hreflang attribute of a link</h2>
+
+    <p><a href="https://www.w3schools.com" hreflang="en-us" id="myAnchor2"></a></p>
+
+    <p>Click the button to display the value of the hreflang attribute of the link above.</p>
+
+    <button onclick="myFunc2()">Try it</button>
+
+    <p id="demo2"></p>
+
+    <script>
+        function myFunc2() {
+            var x = document.getElementById("myAnchor2").hreflang;
+            document.getElementById("demo2").innerHTML = x;
+        }
+    </script>
+
+    <h2>Find the value of the id attribute a link</h2>
+
+    <p><a href="https://www.w3schools.com" id="myAnchor3"></a></p>
+
+    <p>Click the button to display the value of the id attribute of the link above.</p>
+
+    <button onclick="myFunc3()">Try it</button>
+
+    <p id="demo3"></p>
+
+    <script>
+        function myFunc3() {
+            var x = document.getElementById("myAnchor3").id;
+            document.getElementById("demo3").innerHTML = x;
+        }
+    </script>
+
+    <h2>Find the value of the rel attribute of a link</h2>
+
+    <p><a href="https://www.w3schools.com" rel="nofollow" id="myAnchor4"></a></p>
+
+    <p>Click the button to display the value of the rel attribute of the link above.</p>
+
+    <button onclick="myFunc4()">Try it</button>
+
+    <p id="demo4"></p>
+
+    <script>
+        function myFunc4() {
+            var x = document.getElementById("myAnchor4").rel;
+            document.getElementById("demo4").innerHTML = x;
+        }
+    </script>
+
+    <h2>Find the value of the target attribute of a link</h2>
+
+    <p><a href="https://www.w3schools.com" target="_self" id="myAnchor5"></a></p>
+
+    <p>Click the button to display the value of the target attribute of the link above</p>
+
+    <button onclick="myFunc5()">Try it</button>
+
+    <p id="demo5"></p>
+
+    <script>
+        function myFunc5() {
+            var x = document.getElementById("myAnchor5").target;
+            document.getElementById("demo5").innerHTML = x;
+        }
+    </script>
+
+    <h2>Find the value of the type attribute of a link</h2>
+
+    <p><a href="https://www.w3schools.com" type="text/html" id="myAnchor6"></a></p>
+
+    <p>Click the button to return the value of type attribute of the link above.</p>
+
+    <button onclick="myFunc6()">Try it</button>
+
+    <p id="demo6"></p>
+
+    <script>
+        function myFunc6() {
+            var x = document.getElementById("myAnchor6").type;
+            document.getElementById("demo6").innerHTML = x;
+        }
+    </script>
+
+    <h1>Area Object</h1>
+
+    <h2>Find the alternate text of an image-map area</h2>
+
+    <img src="planets.gif" usemap="#planetmap" alt="">
+
+    <map name="planetmap">
+        <area shape="circle" coords="124,58,8" href="venus.htm" alt="A beautiful planet" id="venus">
+    </map>
+
+    <p>Click the button to display the alternate text for the "venus" area.</p>
+
+    <button onclick="myFunc7()">Try it</button>
+
+    <p id="demo7"></p>
+
+    <script>
+        function myFunc7() {
+            var x = document.getElementById("venus").alt;
+            document.getElementById("demo7").innerHTML = x;
+        }
+    </script>
+
+    <h2>Find the coordinates of an area</h2>
+
+    <img src="planets.gif" usemap="#planetmap2" alt="">
+
+    <map name="planetmap2">
+        <area shape="" coords="124,58,8" href="" alt="" id="venus2">
+    </map>
+
+    <p>Click the button to display the coordinates for the "venus" area.</p>
+
+    <button onclick="myFunc8()">Try it</button>
+
+    <p id="demo8"></p>
+
+    <script>
+        function myFunc8() {
+            var x = document.getElementById("venus2").coords;
+            document.getElementById("demo8").innerHTML = x;
+        }
+    </script>
+
+    <h2>Find the shape of an area</h2>
+
+    <img src="planets.gif" usemap="#planetmap3" alt="">
+
+    <map name="planetmap3">
+        <area shape="circle" coords="" href="" alt="" id="venus3">
+    </map>
+
+    <p>Click the button to return the shape of the "venus" area in the image-map</p>
+
+    <button onclick="myFunc9()">Try it</button>
+
+    <p id="demo9"></p>
+
+    <script>
+        function myFunc9() {
+            var x = document.getElementById("venus3").shape;
+            document.getElementById("demo9").innerHTML = x;
+        }
+    </script>
+
+    <h2>Find the href of an area</h2>
+
+    <img src="planets.gif" usemap="#planetmap4" alt="">
+
+    <map name="planetmap4">
+        <area shape="" coords="" href="venus.htm" alt="" id="venus4">
+    </map>
+
+    <p>Click the button to display the value of the href attribute for the "venus" area</p>
+
+    <button onclick="myFunc10()">Try it</button>
+
+    <p id="demo10"></p>
+
+    <script>
+        function myFunc10() {
+            var x = document.getElementById("venus4").href;
+            document.getElementById("demo10").innerHTML = x;
+        }
+    </script>
+
+    <h2>Find the protocol part of the href attribute of an area</h2>
+
+    <img src="planets.gif" usemap="#planetmap5" alt="">
+
+    <map name="planetmap5">
+        <area shape="" coords="" href="venus.htm" alt="" id="venus5">
+    </map>
+
+    <p>Click the button to display the protocol of the href attribute for the "venus" area.</p>
+
+    <button onclick="myFunc11()">Try it</button>
+
+    <p id="demo11"></p>
+
+    <script>
+        function myFunc11() {
+            var x = document.getElementById("venus5").protocol;
+            document.getElementById("demo11").innerHTML = x;
+        }
+    </script>
+
+    <h2>Find the hostname part of the href attribute of an area</h2>
+
+    <img src="planets.gif" usemap="#planetmap6" alt="">
+
+    <map name="planetmap6">
+        <area shape="" coords="" href="venus6" alt="" id="venus6">
+    </map>
+
+    <p>Click the button to display the hostname of the href attribute of the "venus" area</p>
+
+    <button onclick="myFunc12()">Try it</button>
+
+    <p id="demo12"></p>
+
+    <script>
+        function myFunc12() {
+            var x = document.getElementById("venus6").hostname;
+            document.getElementById("demo12").innerHTML = x;
+        }
+    </script>
+
+    <h2>Find the port number part of the href attribute of an area</h2>
+
+    <img src="planets.gif" usemap="#planetmap7" alt="">
+
+    <map name="planetmap7">
+        <area shape="" coords="" href="venus.htm" alt="" id="venus7">
+    </map>
+
+    <p>Click the button to display the port of the href attribute for the "venus" area in the image-map</p>
+    <p><b>Note:</b> If the port part is not specified in the URL, or if the port number is 80 (which is default), some browsers will just display 0 or nothing</p>
+
+    <button onclick="myFunc13()">Try it</button>
+
+    <p id="demo13"></p>
+
+    <script>
+       function myFunc13() {
+           var x = document.getElementById("venus7").port;
+           document.getElementById("demo13").innerHTML = "Port: " + x;
+       }
+    </script>
+
+    <h2>Find the pathname part of the href attribute of an area</h2>
+
+    <img src="planets.gif" usemap="#planetmap8" alt="">
+
+    <map name="planetmap8">
+        <area shape="" coords="" href="js/venus.htm" alt="" id="venus8">
+    </map>
+
+    <p>Click the button to dispaly the pathname of the href attribute for the "venus" area in the image-map</p>
+
+    <button onclick="myFunc14()">Try it</button>
+
+    <p id="demo14"></p>
+
+    <script>
+        function myFunc14() {
+            var x = document.getElementById("venus8").pathname;
+            document.getElementById("demo14").innerHTML = x;
+        }
+    </script>
+
+    <h2>Find the querystring part of the href attribute of an area</h2>
+
+    <img src="planets.gif" usemap="#planetmap9" alt="">
+
+    <map name="planetmap9">
+        <area shape="" coords="" href="/js/venus.htm?id=venus" alt="" id="venus9">
+    </map>
+
+    <p>Click the button to display the querystring part of the href attribute for the "venus" area.</p>
+
+    <button onclick="myFunc15()">Try it</button>
+
+    <p id="demo15"></p>
+
+    <script>
+        function myFunc15() {
+            var x = document.getElementById("venus9").search;
+            document.getElementById("demo15").innerHTML = x;
+        }
+    </script>
+
+    <h2>Find the hash part of the href attribute of an area</h2>
+
+    <img src="planets.gif" usemap="#planetmap10" alt="">
+
+    <map name="planetmap10">
+        <area shape="" coords="" href="venus.htm#description" alt="" id="venus10">
+    </map>
+
+    <p>Click the button to display the hash part of the href attribute for the "venus" area.</p>
+
+    <button onclick="myFunc16()">Try it</button>
+
+    <p id="demo16"></p>
+
+    <script>
+        function myFunc16() {
+            var x = document.getElementById("venus10").hash;
+            document.getElementById("demo16").innerHTML = x;
+        }
+    </script>
+
+    <h2>Find the value of the target attribute of an area</h2>
+
+    <img src="planets.gif" usemap="#planetmap11" alt="">
+
+    <map name="planetmap11">
+        <area shape="" coords="" href="venus.htm" target="_self" alt="" id="venus11">
+    </map>
+
+    <p>Click the button to return the value of the target attribute for the "venus" area in the image-map</p>
+
+    <button onclick="myFunc17()">Try it</button>
+
+    <p id="demo17"></p>
+
+    <script>
+        function myFunc17() {
+            var x = document.getElementById("venus11").target;
+            document.getElementById("demo17").innerHTML = x;
+        }
+    </script>
+
+    <h1>Base Object</h1>
+
+    <h2>Find the base URL for all relative URLs on a page</h2>
+
+    <p>Click the button to display the value of the href attribute of the base element.</p>
+
+    <button onclick="myFunc18()">Try it</button>
+
+    <p id="demo18"></p>
+
+    <script>
+        function myFunc18() {
+            var x = document.getElementById("htmldom").href;
+            document.getElementById("demo18").innerHTML = x;
+        }
+    </script>
+
+    <h2>Find the base target for all links on a page</h2>
+
+    <p>Click the button to display the value of the target attribute of the base element</p>
+
+    <button onclick="myFunc19()">Try it</button>
+
+    <p id="demo19"></p>
+
+    <script>
+        function myFunc19() {
+            var x = document.getElementById("htmldom2").target;
+            document.getElementById("demo19").innerHTML = x;
+        }
+    </script>
+
+    <h1>IFrame Object</h1>
+
+    <h2>Change the background color of an iframe</h2>
+
+    <iframe src="IFrame.html" frameborder="5" id="myFrame"><p>Your browser not support iframe</p></iframe>
+
+    <p>Click the button to change the background color of the document in the iframe</p>
+
+    <button onclick="myFunc20()">Try it</button>
+
+    <script>
+        function myFunc20() {
+            document.getElementById("myFrame").style.backgroundColor = "red";
+        }
+    </script>
+
+    <h2>Find the height of an iframe</h2>
+
+    <iframe src="IFrame.html" height="300" width="300" frameborder="5" id="myFrame2"><p>Your browser does not support iframe.</p></iframe>
+    
+    <p>Click the button to display the height of the iframe.</p>
+
+    <button onclick="myFunc21()">Try it</button>
+
+    <p id="demo21"></p>
+
+    <script>
+        function myFunc21() {
+            var x = document.getElementById("myFrame2").height;
+            document.getElementById("demo21").innerHTML = x;
+        }
+    </script>
+
+    <h2>Find the value of the name attribute of an iframe</h2>
+
+    <iframe src="IFrame.html" name="frame_a" frameborder="5" id="myFrame3"></iframe>
+
+    <p>Click the button to return the name of the iframe</p>
+
+    <button onclick="myFunc22()">Try it</button>
+
+    <p id="demo22"></p>
+    
+    <script>
+        function myFunc22() {
+            var x = document.getElementById("myFrame3").name;
+            document.getElementById("demo22").innerHTML = x;
+        }
+    </script>
+
+    <h2>Find the source (src) attribute of an iframe</h2>
+
+    <iframe src="IFrame.html" frameborder="5" id="myFrame4"></iframe>
+
+    <p>Click the button to display the value of the src attribute in the iframe</p>
+
+    <button onclick="myFunc23()">Try it</button>
+
+    <p id="demo23"></p>
+
+    <script>
+        function myFunc23() {
+            var x = document.getElementById("myFrame4").src;
+            document.getElementById("demo23").innerHTML = x;
+        }
+    </script>
+
+    <h2>Change the source (src) attribute of an iframe</h2>
+
+    <iframe src="IFrame.html" frameborder="5" id="myFrame5"></iframe>
+
+    <p>Click the button to change the src attribute in the iframe.</p>
+
+    <button onclick="myFunc24()">Try it daraz</button>
+
+    <script>
+        function myFunc24() {
+            document.getElementById("myFrame5").src = "https://www.daraz.lk";
+        }
+    </script>
+
+    <h1>Image Object</h1>
+
+    <h2>Find the alternate text of an image</h2>
+
+    <img src="compman.gif" alt="Crazy computerman" id="myImg">
+
+    <p>Click the button to display the alternate text of the image.</p>
+
+    <button onclick="myFunc25()">Try it</button>
+
+    <p id="demo25"></p>
+
+    <script>
+        function myFunc25() {
+            var x = document.getElementById("myImg").alt;
+            document.getElementById("demo25").innerHTML = x;
+        }
+    </script>
+
+    <h2>Find the height of an image</h2>
+
+    <img src="compman.gif" height="100" alt="" id="myImg2">
+
+    <p>Click the button to display the height of the image</p>
+
+    <button onclick="myFunc26()">Try it</button>
+
+    <p id="demo26"></p>
+
+    <script>
+        function myFunc26(){
+            var x = document.getElementById("myImg2").height;
+            document.getElementById("demo26").innerHTML = x;
+        }
+    </script>
+
+    <h2>Click to display a high-resolution version of an image</h2>
+
+    <img src="compman_lowres.gif" onclick="changeImg()" alt="" id="myImg3">
+
+    <p>Click the image to display a high resolution version.</p>
+
+    <script>
+        function changeImg() {
+            document.getElementById("myImg3").src = "compman.gif";
+        }
+    </script>
+
+    <h2>Find the source (src) of an image</h2>
+
+    <img src="compman.gif" alt="" id="myImg4">
+
+    <p>Click the button to display the src attribute of the image.</p>
+
+    <button onclick="myFunc27()">Try it</button>
+
+    <p id="demo27"></p>
+
+    <script>
+        function myFunc27() {
+            var x = document.getElementById("myImg4").src;
+            document.getElementById("demo27").innerHTML = x;
+        }
+    </script>
+
+    <h2>Change the source of an image</h2>
+
+    <img src="compman_lowres.gif" alt="" id="myImg5">
+    <br><br>
+    <button onclick="document.getElementById('myImg5').src = 'compman.gif'">on</button>
+    <button onclick="document.getElementById('myImg5').src = 'compman_lowres.gif'">off</button>
+
+    <h2>Change the source of the lightbulb</h2>
+
+    <img src="pic_bulboff.gif" onclick="changeImg2()" alt="" id="myImg6">
+
+    <p>Click the light bulb to turn on/off the light</p>
+
+    <script>
+        function changeImg2() {
+            var img = document.getElementById("myImg6");
+            if(img.src.match("bulbon")) {
+                img.src = "pic_bulboff.gif";
+            } else {
+                img.src = "pic_bulbon.gif";
+            }
+        }
+    </script>
+
+    <h1>Table Objects</h1>
+
+    <h2>Change the width of a table border</h2>
+
+    <table border="1" style="border:1px solid black" id="myTable">
+        <tr>
+            <td>100</td>
+            <td>200</td>
+        </tr>
+        <tr>
+            <td>300</td>
+            <td>400</td>
+        </tr>
+    </table>
+
+    <p><input type="button" value="Change Border" onclick="changeBorder('myTable')"></p>
+
+    <script>
+        function changeBorder(id){
+            document.getElementById(id).style.border = "5px solid";
+        }
+    </script>
+
+    <h2>Change the padding of a table</h2>
+
+    <table border="1" id="myTable2">
+        <tr>
+            <td>100</td>
+            <td>200</td>
+        </tr>
+        <tr>
+            <td>300</td>
+            <td>400</td>
+        </tr>
+    </table>
+
+    <p><input type="button" value="Change padding" onclick="padding('myTable2')"></p>
+
+    <script>
+        function padding(id2) {
+            document.getElementById(id2).style.padding = "15px";
+        }
+    </script>
+
+    <h2>Find the innerHTML of a cell</h2>
+
+    <table border="1" id="myTable3">
+        <tr>
+            <td>cell 1</td>
+            <td>cell 2</td>
+        </tr>
+        <tr>
+            <td>cell 3</td>
+            <td>cell 4</td>
+        </tr>
+    </table>
+
+    <p><input type="button" value="Find cell" onclick="getCell('myTable3')"></p>
+
+    <p id="demo28"></p>
+
+    <script>
+        function getCell(id3){
+            var x = document.getElementById(id3).rows[0].cells;
+            document.getElementById("demo28").innerHTML = x[0].innerHTML;
+        }
+    </script>
+
+    <h2>Create a caption for a table</h2>
+
+    <table border="1" id="myTable4">
+        <tr>
+            <td>Row1 cell1</td>
+            <td>Row1 cell2</td>
+        </tr>
+        <tr>
+            <td>Row1 cell3</td>
+            <td>Row1 cell4</td>
+        </tr>
+    </table>
+
+    <p><input type="button" value="Create Caption" onclick="createCaption('myTable4')"></p>
+
+    <script>
+        function createCaption(id4){
+            document.getElementById(id4).createCaption().innerHTML = "The new caption";
+        }
+    </script>
+
+    <h2>Delete rows in a table</h2>
+
+    <table border="1" style="padding: 8px;" id="myTable5">
+        <tr>
+            <td>Jill</td>
+            <td>Smith</td>
+            <td>50</td>
+        </tr>
+        <tr>
+            <td>Eve</td>
+            <td>Jackson</td>
+            <td>94</td>
+        </tr>
+        <tr>
+            <td>John</td>
+            <td>Doe</td>
+            <td>80</td>
+        </tr>
+    </table>
+
+    <p><input type="button" value="Delete Row" onclick="document.getElementById('myTable5').deleteRow(0)"></p>
+
+    <h2>Add rows to a table</h2>
+
+    <table border="1" id="myTable6">
+        <tr>
+            <td>Row1 Cell1</td>
+            <td>Row1 Cell2</td>
+        </tr>
+        <tr>
+            <td>Row2 Cell2</td>
+            <td>Row2 Cell2</td>
+        </tr>
+        <tr>
+            <td>Row3 Cell2</td>
+            <td>Row3 Cell2</td>
+        </tr>
+    </table>
+
+    <p><input type="button" value="Insert Row" onclick="insRow('myTable6')"></p>
+
+    <script>
+        function insRow(id6) {
+            var x = document.getElementById(id6).insertRow(0);
+            var y = x.insertCell(0);
+            var z = x.insertCell(1);
+            y.innerHTML = z.innerHTML = "New";
+        }
+    </script>
+
+    <h2>Change the content of a table cell</h2>
+
+    <table border="1" id="myTable7">
+        <tr>
+            <td>Row1 Cell1</td>
+            <td>Row1 Cell2</td>
+        </tr>
+        <tr>
+            <td>Row2 Cell1</td>
+            <td>Row2 Cell2</td>
+        </tr>
+        <tr>
+            <td>Row3 Cell1</td>
+            <td>Row3 Cell2</td>
+        </tr>
+    </table>
+
+    <p><input type="button" value="Change Content" onclick="changeContent('myTable7',0,0,'Hello')"></p>
+
+    <script>
+        function changeContent(id7,row,cell,content) {
+            document.getElementById(id7).rows[row].cells[cell].innerHTML = content;
+        }
+    </script>
+
+</body>
+</html>
